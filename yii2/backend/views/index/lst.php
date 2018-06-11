@@ -1,5 +1,5 @@
 <?php
-
+use yii\widgets\LinkPager;
 ?>
 <h3>添加新的留言板</h3>
 <h5>给你的留言板添加个标题</h5>
@@ -20,6 +20,11 @@
 </div>
 
 <?php endforeach;?>
+<?php
+echo LinkPager::widget([
+    'pagination' => $pagination,
+]);
+?>
 
 <script src="/js/jq.js"></script>
 <script>

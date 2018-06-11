@@ -10,6 +10,7 @@ namespace backend\controllers;
 
 use common\models\Board;
 use common\models\User;
+use yii\data\Pagination;
 use yii\web\Controller;
 
 class IndexController extends Controller
@@ -31,10 +32,21 @@ class IndexController extends Controller
         }
     }
 
+    public function actionGetindex()
+    {
+        $data = Order::find();
+        $page = new Pagination(['totalCount'=>$data->count(), 'pageSize'=>10]);
+        $model = $data->offset($page->offset)->limit($page->limit)->asArray()->all();
+        var_dump($model);die;
+    }
+
     public function actionLst(){
         $model = new Board();
-        $data = Board::find()->all();
-        return $this -> render('lst',['model'=>$model,'data'=>$data]);
+        $data = Board::find();
+        $page = new Pagination(['totalCount'=>$data->count(),'pageSize'=>2]);
+        $data = $data->offset($page->offset)->limit($page->limit)->all();
+
+        return $this -> render('lst',['model'=>$model,'data'=>$data,'pagination'=>$page]);
     }
 
     public function actionAjax(){
@@ -57,13 +69,7 @@ class IndexController extends Controller
         }
     }
 
-    public function actionGetindex()
-    {
-        $data = Order::find();
-        $page = new Pagination(['totalCount'=>$data->count(), 'pageSize'=>10]);
-        $model = $data->offset($page->offset)->limit($page->limit)->asArray()->all();
-        var_dump($model);die;
-    }
+
 
 
 
