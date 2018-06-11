@@ -24,3 +24,8 @@ Route::any('user.update','Login\IndexController@update');
 Route::any('user.add','Login\IndexController@add');
 
 Route::any('user.addsave','Login\IndexController@addsave');
+
+//留言板
+Route::any('board.board','Login\BoardController@index');
+Route::any('board.add','Login\BoardController@add');
+Route::any('board.del','Login\BoardController@del');

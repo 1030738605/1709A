@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Login;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 
 class IndexController extends Controller{
@@ -79,6 +80,9 @@ class IndexController extends Controller{
     public function error($data){
         return ( json_encode($data,JSON_UNESCAPED_UNICODE));
     }
+
+
+
 
 }
 

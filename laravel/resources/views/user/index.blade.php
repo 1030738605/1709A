@@ -1,4 +1,5 @@
 <a href="user.add">添加</a>
+<a href="board.board">留言板</a>
 <table border="1" cellspacing="0" cellpadding="10">
     <tr>
         <td>ID</td>
